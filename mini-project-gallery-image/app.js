@@ -5,8 +5,8 @@ listPopUp.forEach((preview) => {
     preview.addEventListener('click', () => {
         modal.classList.add("open");
         fullImage.classList.add("open");
-        const originalSrc = preview.getAttribute("data-original");
-        fullImage.src = `./img/full/${originalSrc}`
+        const alt = preview.getAttribute("alt");
+        fullImage.src = `./img/full/${alt}.jpg`
     });
 });
 
