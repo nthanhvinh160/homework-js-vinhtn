@@ -28,59 +28,19 @@ function leapYear(nam) {
         return 0;
     }
 }
-if (leapYear(2021) == 1) {
+
     function dateTime(thang) {
         switch (thang) {
             case 1:
                 console.log('Tháng 1 có 31 ngày')
                 break;
             case 2:
+               if(leapYear(2021) == 1){
                 console.log('Tháng 2 có 29 ngày')
-                break;
-            case 3:
-                console.log('Tháng 3 có 31 ngày')
-                break;
-            case 4:
-                console.log('Tháng 4 có 30 ngày')
-                break;
-            case 5:
-                console.log('Tháng 5 có 31 ngày')
-                break;
-            case 6:
-                console.log('Tháng 6 có 30 ngày')
-                break;
-            case 7:
-                console.log('Tháng 2 có 31 ngày')
-                break;
-            case 8:
-                console.log('Tháng 8 có 31 ngày')
-                break;
-            case 9:
-                console.log('Tháng 9 có 30 ngày')
-                break;
-            case 10:
-                console.log('Tháng 10 có 31 ngày')
-                break;
-            case 11:
-                console.log('Tháng 11 có 30 ngày')
-                break;
-            case 12:
-                console.log('Tháng 12 có 31 ngày')
-                break;
-            default:
-                console.log('Bạn phải nhập từ 1 -> 12');
-        }
-    }
-    dateTime(2)
-} else {
-    function dateTime(thang) {
-        switch (thang) {
-            case 1:
-                console.log('Tháng 1 có 31 ngày')
-                break;
-            case 2:
+               } else{
                 console.log('Tháng 2 có 28 ngày')
-                break;
+               }
+               break;
             case 3:
                 console.log('Tháng 3 có 31 ngày')
                 break;
@@ -115,23 +75,33 @@ if (leapYear(2021) == 1) {
                 console.log('Bạn phải nhập từ 1 -> 12');
         }
     }
-    dateTime(2)
-}
+dateTime(2)
 
 console.log("---Bài 3---")
 
+// function checkNumber(soNguyen) {
+//     if (soNguyen === 0) {
+//         console.log("Là số 0")
+//     } else if (soNguyen === parseInt(soNguyen) && soNguyen > 0) {
+//         console.log(soNguyen + " Là số Nguyên Dương")
+//     } else if (soNguyen === parseInt(soNguyen) && soNguyen < 0) {
+//         console.log(soNguyen + " Là số Nguyên Âm")
+//     } else {
+//         console.log(soNguyen + " Không phải là số Nguyên!")
+//     }
+// }
 function checkNumber(soNguyen) {
     if (soNguyen === 0) {
         console.log("Là số 0")
-    } else if (soNguyen === parseInt(soNguyen) && soNguyen > 0) {
+    } else if (Number.isInteger(soNguyen) && soNguyen > 0) {
         console.log(soNguyen + " Là số Nguyên Dương")
-    } else if (soNguyen === parseInt(soNguyen) && soNguyen < 0) {
+    } else if (Number.isInteger(soNguyen) && soNguyen < 0) {
         console.log(soNguyen + " Là số Nguyên Âm")
     } else {
         console.log(soNguyen + " Không phải là số Nguyên!")
     }
 }
-checkNumber(3)
+checkNumber(3.2)
 
 console.log("---Bài 4---")
 function calculator(a, b, c) {

@@ -3,6 +3,42 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  scroll-behavior: smooth;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+}
+.container_menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 70px;
+  background-color: rgb(19, 19, 19);
+  padding-top: 25px;
+  z-index: 2;
+}
+.container_menu .list_menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.container_menu .list_menu .list_menu_item{
+ color: #fff;
+ cursor: pointer;
+}
+header .container_menu .list_menu .list_menu_item .list_menu_item--link{
+  text-transform: uppercase;
+  color: #fff;
+}
+header .container_menu .list_menu .list_menu_item .list_menu_item--link:hover{
+  color: rgb(250, 138, 46);
+  transition: all 0.3s ease-in-out;
+}
 
 .gallery {
   display: grid;
@@ -49,4 +85,71 @@
 .modal.open {
   opacity: 1;
   pointer-events: all;
+}
+
+#gallery{
+  padding-top:100px;
+  text-align:center;
+}
+#books{
+  margin-top:200px;
+  padding-top:100px;
+  text-align:center;
+}
+#books .img-container {
+  margin-top:20px;
+}
+#books .img-container img:hover{
+  filter: grayscale(0.2);
+  transform: unset;
+}
+
+#students{
+  padding-top:100px;
+  margin-top:300px;
+  margin-bottom:400px;
+  text-align: center;
+}
+#color .color_content .text-color{
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+#color .color_content{
+  margin: 0 auto;
+  max-width: 540px;
+ background-color: rgba(0, 0, 0, 0.801);
+ padding: 20px 0px;
+}
+#color{
+  padding-top:100px;
+  margin-bottom:300px;
+}
+.btn_switch:active {
+  transform: translateY(2px);
+}
+.btn_switch{
+  margin-left: 48%;
+  margin-top: 30px;
+  background-color: rgb(153, 58, 58);
+  border: unset;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow:  rgb(138 138 138) 0px 2px 1px;
+}
+.goTop{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(235, 88, 88);
+  max-Width: 100px;
+  text-align:center;
+  padding:26px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
 }
