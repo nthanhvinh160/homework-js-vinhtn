@@ -42,6 +42,7 @@ element1.appendChild(paraAfter);
 // ------------Bai3-------------
 let btn = document.querySelector('.btn_events');
 let currentBackground = true
+
 btn.addEventListener(
     'click', function () {
         if(currentBackground){
