@@ -16,12 +16,13 @@
     </header>
     <section class="gallery">
       <!-- Image 1 -->
-      <div class="img-container" v-for="(imgItem, index) of imgArr" :key="index" @click="popUp">
-        <img :src="'img/small/'+imgItem" :alt="++index" />
+      <div class="img-container" v-for="(imgItem, index) in imgArr" :key="index" @click="popUp(imgItem.alt)">
+        <img :src="imgItem.image" />
       </div>
 
-      <div class="modal"  @click="turnBack">
-        <img src="img/full/1.jpg" alt="" class="full-img" />
+      <!-- <div :class="['modal', isOpenModal ? 'open':''] "  @click="turnBack"> -->
+      <div class="modal" :class="{'open': isOpenModal}" @click="closePopUp">
+        <img :src="`img/full/${imagePopUp}.jpg`" class="full-img" :class="{'open': isOpenModal}"/>
       </div>
     </section>
 
@@ -68,10 +69,10 @@
     </section>
     <section id="color">
       <div class="color_content">
-        <p class="text-color"> rgb(255, 255, 255) </p>
+        <p class="text-color" :style="changeColor2"> rgb({{randomColor1}},{{randomColor2}},{{randomColor3}}) </p>
       </div>
-      
-      <button @click="changeColor" class="btn_switch"> Switch </button>
+    
+      <button @click="changeColor" :style="changeColorBg" class="btn_switch"> Switch </button>
     </section>
     <div class="goTop"> <span> Go Top! </span> </div>
     <script src="https://unpkg.com/vue@next"></script>

@@ -3,43 +3,77 @@ const app = Vue.createApp({
     data(){
         return{
             imgArr:[
-                "pexels-anna-shvets-4588065.jpg",
-                "pexels-anthony-139639.jpg",
-                "pexels-burst-374825.jpg",
-                "pexels-carlos-spitzer-17811.jpg",
-                "pexels-charles-1851164.jpg",
-                "pexels-frans-van-heerden-631292.jpg",
-                "pexels-gratisography-4602.jpg",
-                "pexels-jan-kopřiva-3614358.jpg",
-                "pexels-jeremy-bishop-2422915.jpg",
-                "pexels-jim-long-949859.jpg",
+                {
+                    image:"img/small/pexels-anna-shvets-4588065.jpg",
+                    alt: 1
+                },
+                {
+                    image:  "img/small/pexels-anthony-139639.jpg",
+                    alt: 2
+                },
+                {
+                    image:"img/small/pexels-burst-374825.jpg",
+                    alt: 3
+                },
+                {
+                    image:"img/small/pexels-carlos-spitzer-17811.jpg",
+                    alt: 4
+                },
+                {
+                    image:"img/small/pexels-charles-1851164.jpg",
+                    alt: 5
+                },
+                {
+                    image:"img/small/pexels-frans-van-heerden-631292.jpg",
+                    alt: 6
+                },
+                {
+                    image:"img/small/pexels-gratisography-4602.jpg",
+                    alt: 7
+                },
+                {
+                    image:"img/small/pexels-jan-kopřiva-3614358.jpg",
+                    alt: 8
+                },
+                {
+                    image:"img/small/pexels-jeremy-bishop-2422915.jpg",
+                    alt: 9
+                },
+                {
+                    image: "img/small/pexels-jim-long-949859.jpg",
+                    alt: 10
+                },
             ],
+            imagePopUp: '',
+            isOpenModal: false,
             menu:[
                 "gallery",
                 "books",
                 "students",
                 "color",
-            ]
-            
+            ],
+            colorChanged: {
+                color: 'red',
+            },
+            randomColor1: 22,
+            randomColor2: 22,
+            randomColor3: 22,
             
         }
     },
     methods:{
-        popUp(event){
-            let fullImg = document.querySelector('.full-img');
-            let modal = document.querySelector('.modal');
-            let alt = event.target.getAttribute('alt');
-            fullImg.src = `img/full/${alt}.jpg`;
-            setTimeout(()=>{
-                modal.classList.add('open');
-            },200)
-            fullImg.classList.add('open');
+        popUp(image){
+           this.imagePopUp = image;
+           this.isOpenModal = true;
+        //    console.log(this.imagePopUp);
         },
-        turnBack(event){
-            let modal = document.querySelector('.modal');
-            if(event.target.classList.contains('modal')){
-                modal.classList.remove("open");
-            };
+        closePopUp(event){
+        //    console.log(event.target.classList.contains("modal"));
+        if(event.target.classList.contains("modal")){
+            if(this.isOpenModal){
+                this.isOpenModal = false;
+            }
+        }
         },
         scrollToSection(event) {
             let alt = event.target.getAttribute('alt');
@@ -47,25 +81,20 @@ const app = Vue.createApp({
             document.querySelector(`#${alt}`).scrollIntoView(true);
         },
         changeColor(){
-            let randomColor1 = `${(Math.floor(Math.random() * 256))}`;
-            let randomColor2 = `${(Math.floor(Math.random() * 256))}`;
-            let randomColor3 = `${(Math.floor(Math.random() * 256))}`;
-            let textColor = document.querySelector('.text-color');
-            let btnSwitch = document.querySelector('.btn_switch');
-            let rdColor = `rgb(${randomColor1},${randomColor2},${randomColor3})`;
-            textColor.style.color = rdColor;
-            textColor.innerHTML = rdColor;
+            this.randomColor1 = Math.floor(Math.random() * 256);
+            this.randomColor2 = Math.floor(Math.random() * 256);
+            this.charandomColor3 = Math.floor(Math.random() * 256);
         }
     },
-    watch:{
-        openClass:{
-            handler() {
-                console.log('Class was changed')
-            },
-            deep: true
+    // watch:{
+       
+    // }
+    computed:{
+        changeColor2(){
+            return {color: `rgb(${this.randomColor1},${this.randomColor2},${this.randomColor3})`};
         },
-        'openClass.open'(event){
-            console.log('class was change state')
+        changeColorBg(){
+            return {backgroundColor: `rgb(${this.randomColor1},${this.randomColor2},${this.randomColor3})`};
         }
     }
 })
